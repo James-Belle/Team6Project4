@@ -1,21 +1,21 @@
-﻿// Include code libraries you need below (use the namespace).
+﻿
 using System;
 using System.Numerics;
 
-// The namespace your code is in.
 namespace Game10003
 {
-    /// <summary>
-    ///     Your game code goes inside this class!
-    /// </summary>
+   
     public class Game
     {
         // Place your variables here:
+        public Vector2 position;
+        public Vector2 velocity;
+        Vector2 gravity = new Vector2(0, +10);
 
+        Color Svelt = new Color(22, 14, 0, 255);
+        Color Pink = new Color(255, 195, 233, 255);
+        Color Brick = new Color(110, 25, 0, 200);
 
-        /// <summary>
-        ///     Setup runs once before the game loop begins.
-        /// </summary>
         public void Setup()
         {
             Window.SetTitle ("Rise up");
@@ -24,12 +24,20 @@ namespace Game10003
 
         }
 
-        /// <summary>
-        ///     Update runs every frame.
-        /// </summary>
+        public void SimGrav()
+        {
+            Vector2 gravityForce = gravity * Time.DeltaTime;
+            velocity += gravityForce;
+            position += velocity;
+        }
+      
         public void Update()
         {
-            Window.ClearBackground(Color.White);
+            Window.ClearBackground(Brick);
+            Draw.FillColor = Svelt;
+            Draw.LineColor = Color.Black;
+            Draw.Rectangle(position, gravity);
+            
         }
     }
 }
