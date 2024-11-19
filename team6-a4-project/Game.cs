@@ -11,10 +11,11 @@ namespace Game10003
         public Vector2 position;
         public Vector2 velocity;
         Vector2 gravity = new Vector2(0, +10);
+        Vector2 playerposition = new Vector2(100, 100);
 
         Color Svelt = new Color(22, 14, 0, 255);
         Color Pink = new Color(255, 195, 233, 255);
-        Color Brick = new Color(110, 25, 0, 200);
+        Color Brick = new Color(110, 40, 0, 200);
 
         public void Setup()
         {
@@ -36,7 +37,7 @@ namespace Game10003
             Window.ClearBackground(Brick);
             Draw.FillColor = Svelt;
             Draw.LineColor = Color.Black;
-            Draw.Rectangle(position, gravity);
+            Draw.Rectangle(playerposition, gravity);
             
         }
     }
