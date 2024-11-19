@@ -15,6 +15,12 @@ namespace Game10003
         public Vector2 jumpHeight;
         public float speed;
         //player square's sides
+        public float leftSide;
+        public float rightSide;
+        public float topSide;
+        public float bottomSide;
+
+        //Draw the player + player physics
         public void drawPlayer()
         {
             Draw.FillColor = Color.Red;
@@ -23,14 +29,31 @@ namespace Game10003
             gravityForce = gravity * Time.DeltaTime;
             velocity += gravityForce;
             position += velocity;
+            //player's sides
+            leftSide = position.X;
+            rightSide = position.X + 50;
+            topSide = position.Y;
+            bottomSide = position.Y + 50;
             //constrain to bottom of screen
-            if (position.Y > 750)
+            if (bottomSide > 800)
             {
                 position.Y = lastPosition.Y;
                 velocity.Y = 0;
             }
+
+            //constrain to right of screen
+            if (rightSide > Window.Width)
+            {
+                position.X = Window.Width - 50;
+            }
+            //constrain to the left of screen
+            if (leftSide < 0)
+            {
+                position.X = 0;
+            }
         }
 
+        //All controls for the player
         public void playerControl()
         {
             //player's input
