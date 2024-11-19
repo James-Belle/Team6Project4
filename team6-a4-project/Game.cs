@@ -18,6 +18,9 @@ namespace Game10003
         /// </summary>
         public void Setup()
         {
+            Window.SetTitle ("Rise up");
+            Window.SetSize(800, 600);
+            Window.TargetFPS = (45);
 
         }
 
@@ -26,7 +29,7 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-
+            Window.ClearBackground(Color.White);
         }
     }
 }
