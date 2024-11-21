@@ -19,6 +19,7 @@ namespace Game10003
         public float rightSide;
         public float topSide;
         public float bottomSide;
+        public bool isInAir = false;
 
         //Draw the player + player physics
         public void drawPlayer()
@@ -38,6 +39,7 @@ namespace Game10003
             if (bottomSide > 800)
             {
                 position.Y = lastPosition.Y;
+                isInAir = false;
                 velocity.Y = 0;
             }
 
@@ -65,11 +67,12 @@ namespace Game10003
             {
                 position.X += speed * Time.DeltaTime;
             }
-            if (velocity.Y == 0)
+            if (isInAir == false)
             {
                 if (Input.IsKeyboardKeyDown(KeyboardInput.Up))
                 {
                     velocity = velocity - jumpHeight;
+                    isInAir = true;
                 }
             }
             
