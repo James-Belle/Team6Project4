@@ -6,14 +6,14 @@ namespace Game10003
     public class Player
     {
         //players variables
-        public Vector2 position;
-        public Vector2 lastPosition;
-        public int sideLength;
+        public Vector2 position = new Vector2(350, 450);
+        public Vector2 lastPosition = new Vector2(0, 0);
+        public int sideLength = 50;
         public Vector2 velocity;
         public Vector2 gravity = new Vector2(0, +15);
         public Vector2 gravityForce;
-        public Vector2 jumpHeight;
-        public float speed;
+        public Vector2 jumpHeight = new Vector2(0, 12);
+        public float speed = 400f;
         //player square's sides
         public float leftSide;
         public float rightSide;

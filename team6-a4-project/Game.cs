@@ -20,12 +20,6 @@ namespace Game10003
         {
             Window.SetSize(600, 800);
             Window.SetTitle("Player test");
-            //Player's default variables
-            player.position = new Vector2(350, 450);
-            player.sideLength = 50;
-            player.speed = 400;
-            player.jumpHeight = new Vector2(0, 12);
-            player.lastPosition = new Vector2(0, 0);
         }
 
         /// <summary>
