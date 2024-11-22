@@ -11,7 +11,7 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        Platform[] platforms = new Platform[1];
+        Platform[] platforms = new Platform[12];
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -21,7 +21,7 @@ namespace Game10003
 
             for (int i = 0; i < platforms.Length; i++)
             {
-                platforms[i] = new Platform();
+                platforms[i] = new Platform(i);
             }
         }
 
@@ -31,16 +31,9 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(Color.White);
-            if (Input.IsMouseButtonDown(MouseInput.Left))
-            {
-                foreach (Platform platform in platforms)
-                {
-                    platform.Hitbox(Input.GetMousePosition());
-                }
-            }
             foreach (Platform platform in platforms)
             {
-                platform.DrawPlatform();
+                platform.PlatformUpdate();
             }
         }
     }
