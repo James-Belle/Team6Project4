@@ -11,29 +11,27 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        Platform[] platforms = new Platform[12];
+        Platform[] platforms = new Platform[24];
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-            Window.SetSize(800, 600);
-
-            for (int i = 0; i < platforms.Length; i++)
+            for (int i = 0; i < platforms.Length/2; i++)
             {
-                platforms[i] = new Platform(i);
+                platforms[i] = new Platform(i); // initializes the platforms and makes sure they are offset
+                platforms[i+platforms.Length / 2] = new Platform(i); // makes it so there are 2 platforms on each y level
             }
         }
-
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(Color.White);
+            bool isTouchingPlatform = false; // this resets the collision check every frame
             foreach (Platform platform in platforms)
-            {
-                platform.PlatformUpdate();
+            { // if any of the platforms are touching the player this bool will be true
+                isTouchingPlatform = platform.PlatformUpdate(Input.GetMousePosition()) || isTouchingPlatform; // replace with player position
             }
         }
     }
