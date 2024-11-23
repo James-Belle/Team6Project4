@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Numerics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Game10003
 {
 	public class Platform
@@ -14,8 +16,8 @@ namespace Game10003
         int yOffset = 0;
         bool isTouched = false; // if the platform is touched by the player it starts fading.
         bool isTouchedRightNow = false;
-		Color platGrey = new Color(50, 255); // colour of the platforms
-		public Platform(int Offset)
+		Color platGrey = new Color(90, 90, 90, 255); // colour of the platforms unfortunantly first three numbers can be changes, last one is occupacity
+        public Platform(int Offset)
 		{
 			yOffset = Offset; // inputs the y offset for each platform
 			position.Y = Window.Height - yOffset * 100; // sets their inistial position
@@ -26,7 +28,7 @@ namespace Game10003
 		{
 			isTouchedRightNow = false; // resets the detection each frame
             position.Y += speed; // sends down the platform
-            platGrey = new Color(50, fadeTimer);
+            platGrey = new Color(90, 90, 90, fadeTimer); //first three numbers can be changes, just not the variable
             if (isTouched)
             { // once the platform has been touched is will start to fade.
                 fadeTimer--;

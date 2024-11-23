@@ -40,15 +40,18 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(Brick);
+
+            bool isTouchingPlatform = false; // this resets the collision check every frame
+            foreach (Platform platform in platforms)
+            {
+                isTouchingPlatform = platform.PlatformUpdate(playerposition) || isTouchingPlatform; // if any of the platforms are touching the player this bool will be true
+            }
+
             Draw.FillColor = Svelt;
             Draw.LineColor = Color.Black;
             Draw.Rectangle(playerposition, gravity);
              
-            bool isTouchingPlatform = false; // this resets the collision check every frame
-            foreach (Platform platform in platforms)
-            { // if any of the platforms are touching the player this bool will be true
-                isTouchingPlatform = platform.PlatformUpdate(Input.GetMousePosition()) || isTouchingPlatform; // replace with player position
-            }
+            
         }
     }
 }
