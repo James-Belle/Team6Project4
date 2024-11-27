@@ -14,12 +14,25 @@ namespace Game10003
         Vector2 gravity = new Vector2(0, +10);
         Vector2 playerposition = new Vector2(100, 100);
 
+
+        Texture2D texture;
         Color Svelt = new Color(22, 14, 0, 255);
         Color Pink = new Color(255, 195, 233, 255);
         Color Brick = new Color(110, 40, 0, 200);
 
         public void Setup()
         {
+
+            Window.SetTitle("Load Asset Example");
+            Window.SetSize(400, 400);
+
+            string cwd = System.IO.Directory.GetCurrentDirectory();
+            Console.WriteLine(cwd);
+
+            string filePath = "\"C:\\Users\\User\\Documents\\Brick Background.png\"";
+            texture = Graphics.LoadTexture(filePath);
+
+
             Window.SetTitle ("Rise up");
             Window.SetSize(800, 600);
             Window.TargetFPS = (45);
@@ -40,6 +53,8 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(Brick);
+
+            Graphics.Draw(texture, 10,10);
 
             bool isTouchingPlatform = false; // this resets the collision check every frame
             foreach (Platform platform in platforms)
