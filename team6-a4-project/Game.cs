@@ -11,15 +11,25 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         Player player = new Player();
-
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
             Window.SetSize(600, 800);
-            Window.SetTitle("Player test");
         }
 
         /// <summary>
@@ -27,6 +37,41 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Window.ClearBackground(Color.White);
             player.lastPosition = player.position;
             player.drawPlayer();
