@@ -8,6 +8,8 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
+        Player player = new Player();
+
         Platform[] platforms = new Platform[24];
         public Vector2 position;
         public Vector2 velocity;
@@ -65,8 +67,12 @@ namespace Game10003
             Draw.FillColor = Svelt;
             Draw.LineColor = Color.Black;
             Draw.Rectangle(playerposition, gravity);
-             
-            
+
+            Window.ClearBackground(Color.White);
+            player.lastPosition = player.position;
+            player.drawPlayer();
+            player.playerControl();
+
         }
     }
 }

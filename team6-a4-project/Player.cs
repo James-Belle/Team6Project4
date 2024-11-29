@@ -36,7 +36,7 @@ namespace Game10003
             topSide = position.Y;
             bottomSide = position.Y + 50;
             //constrain to bottom of screen
-            if (bottomSide > 800)
+            if (bottomSide > 600)
             {
                 position.Y = lastPosition.Y;
                 isInAir = false;
