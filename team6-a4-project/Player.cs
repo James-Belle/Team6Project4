@@ -19,6 +19,7 @@ namespace Game10003
         public float rightSide;
         public float topSide;
         public float bottomSide;
+        //checks if player is currently in the air or on the ground
         public bool isInAir = false;
 
         //Draw the player + player physics

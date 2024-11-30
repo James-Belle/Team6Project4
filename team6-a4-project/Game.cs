@@ -68,10 +68,12 @@ namespace Game10003
             Draw.LineColor = Color.Black;
             Draw.Rectangle(playerposition, gravity);
 
-            Window.ClearBackground(Color.White);
+
             player.lastPosition = player.position;
             player.drawPlayer();
             player.playerControl();
+
+            playerposition = player.position; 
 
         }
     }

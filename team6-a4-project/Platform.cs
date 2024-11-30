@@ -8,6 +8,7 @@ namespace Game10003
 {
 	public class Platform
 	{
+
 		Vector2 position = Vector2.Zero; // position of the platform
         Vector2 size = new Vector2(120, 20);
 		float originPosition; // position the platforms will return to
@@ -57,7 +58,7 @@ namespace Game10003
 			Draw.LineColor = platGrey;
 			Draw.Rectangle(position, size);
 		}
-		public void Hitbox(Vector2 playerPosition)
+		public void Hitbox(Vector2 playerPosition)	
 		{ // this checks if the player is touching the platform
             bool leftOf = playerPosition.X < position.X;
             bool rightOf = playerPosition.X > position.X + size.X;
