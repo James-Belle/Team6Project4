@@ -63,7 +63,15 @@ namespace Game10003
             {
                 isTouchingPlatform = platform.PlatformUpdate(playerposition) || isTouchingPlatform; // if any of the platforms are touching the player this bool will be true
             }
-
+            if (isTouchingPlatform)
+            {
+                //player.position.Y = player.lastPosition.Y;
+                if (player.velocity.Y > 0)
+                {
+                    player.isInAir = false;
+                    player.velocity.Y = 0;
+                }
+            }
             Draw.FillColor = Svelt;
             Draw.LineColor = Color.Black;
             Draw.Rectangle(playerposition, gravity);

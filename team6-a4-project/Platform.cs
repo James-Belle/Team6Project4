@@ -27,12 +27,13 @@ namespace Game10003
         }
 		public bool PlatformUpdate(Vector2 playerPosition)
 		{
+			playerPosition = new Vector2(playerPosition.X+25, playerPosition.Y+50);
 			isTouchedRightNow = false; // resets the detection each frame
             position.Y += speed; // sends down the platform
             platGrey = new Color(90, 90, 90, fadeTimer); //first three numbers can be changes, just not the variable
             if (isTouched)
             { // once the platform has been touched is will start to fade.
-                fadeTimer--;
+                fadeTimer-=3; /////// adjust this to adjust fade speed //////
             }
             if (position.Y > Window.Height+20)
             { // respawns when they get bellow screen
@@ -60,8 +61,8 @@ namespace Game10003
 		}
 		public void Hitbox(Vector2 playerPosition)	
 		{ // this checks if the player is touching the platform
-            bool leftOf = playerPosition.X < position.X;
-            bool rightOf = playerPosition.X > position.X + size.X;
+            bool leftOf = playerPosition.X < position.X -10;
+            bool rightOf = playerPosition.X > position.X + size.X +10;
             bool above = playerPosition.Y < position.Y;
             bool below = playerPosition.Y > position.Y + size.Y;
             if (!above && !below && !leftOf && !rightOf)
