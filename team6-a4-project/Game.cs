@@ -43,6 +43,10 @@ namespace Game10003
                 platforms[i] = new Platform(i); // initializes the platforms and makes sure they are offset
                 platforms[i+platforms.Length / 2] = new Platform(i); // makes it so there are 2 platforms on each y level
             }
+            //player positions being set
+            player.position.X = 350;
+            player.position.Y = 250;
+            player.bottomSide = 50;
         }
 
         public void SimGrav()
@@ -54,35 +58,46 @@ namespace Game10003
       
         public void Update()
         {
-            Window.ClearBackground(Brick);
-
-            Graphics.Draw(texture, 10,10);
-
-            bool isTouchingPlatform = false; // this resets the collision check every frame
-            foreach (Platform platform in platforms)
+            if (player.bottomSide < 600) // this checks if player is still onscreen
             {
-                isTouchingPlatform = platform.PlatformUpdate(playerposition) || isTouchingPlatform; // if any of the platforms are touching the player this bool will be true
-            }
-            if (isTouchingPlatform)
-            {
-                //player.position.Y = player.lastPosition.Y;
-                if (player.velocity.Y > 0)
+                Window.ClearBackground(Brick);
+
+                Graphics.Draw(texture, 10, 10);
+
+                bool isTouchingPlatform = false; // this resets the collision check every frame
+                foreach (Platform platform in platforms)
                 {
-                    player.isInAir = false;
-                    player.velocity.Y = 0;
+                    isTouchingPlatform = platform.PlatformUpdate(playerposition) || isTouchingPlatform; // if any of the platforms are touching the player this bool will be true
+                }
+                if (isTouchingPlatform)
+                {
+                    //player.position.Y = player.lastPosition.Y;
+                    if (player.velocity.Y > 0)
+                    {
+                        player.isInAir = false;
+                        player.velocity.Y = 0;
+                    }
+                }
+                Draw.FillColor = Svelt;
+                Draw.LineColor = Color.Black;
+                Draw.Rectangle(playerposition, gravity);
+
+
+                player.lastPosition = player.position;
+                player.drawPlayer();
+                player.playerControl();
+
+                playerposition = player.position;
+            }
+
+            if (player.bottomSide >= 600 ) // game over happens when player falls below zero
+            {
+                Window.ClearBackground(Brick);
+                Text.Draw("Game over! \n\nRestart: press 'r' key", 300, 250);
+                if (Input.IsKeyboardKeyDown(KeyboardInput.R)) { // reset variables to restart game
+                    Setup();
                 }
             }
-            Draw.FillColor = Svelt;
-            Draw.LineColor = Color.Black;
-            Draw.Rectangle(playerposition, gravity);
-
-
-            player.lastPosition = player.position;
-            player.drawPlayer();
-            player.playerControl();
-
-            playerposition = player.position; 
-
         }
     }
 }
