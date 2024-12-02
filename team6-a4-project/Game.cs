@@ -8,6 +8,18 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
+        Vector2 CircleLoacation = new Vector2(200, 400);
+        Vector2 LineSize = new Vector2(50, 120);
+        Vector2 CircleLastPosition;
+        public float x = 120;
+        public float y = 100;
+        public float radius = 170;
+        public float CircleCenterX = 120;
+        public float CircleCenterY = 100;
+        public float Circleradius = 170;
+
+
+
         Player player = new Player();
 
         Platform[] platforms = new Platform[24];
@@ -60,7 +72,118 @@ namespace Game10003
         {
             if (player.bottomSide < 600) // this checks if player is still onscreen
             {
-                Window.ClearBackground(Brick);
+                Window.ClearBackground(Color.Blue);
+
+                Circle();
+
+                x = 640;
+                y = 485;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 510;
+                y = 485;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 380;
+                y = 485;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 250;
+                y = 485;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 125;
+                y = 485;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 640;
+                y = 360;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 510;
+                y = 360;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 380;
+                y = 360;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 250;
+                y = 360;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+
+                x = 125;
+                y = 360;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 640;
+                y = 230;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 510;
+                y = 230;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 380;
+                y = 230;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 250;
+                y = 230;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 122;
+                y = 230;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 640;
+                y = 100;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 510;
+                y = 100;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+                x = 380;
+                y = 100;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+
+
+                x = 120;
+                y = 100;
+                radius = 50;
+                Draw.Circle(x, y, radius);
+
+
+
+
+                x = 250;
+                y = 100;
+                radius = 50;
+
+
+                Draw.Circle(x, y, radius);
+
 
                 Graphics.Draw(texture, 10, 10);
 
@@ -88,6 +211,9 @@ namespace Game10003
                 player.playerControl();
 
                 playerposition = player.position;
+
+                
+
             }
 
             if (player.bottomSide >= 600 ) // game over happens when player falls below zero
@@ -98,6 +224,19 @@ namespace Game10003
                     Setup();
                 }
             }
+        }
+        public void Circle()
+        {
+
+
+            Draw.FillColor = Color.OffWhite;
+            Draw.LineColor = Color.Black;
+            Draw.LineSize = 4;
+
+
+
+
+
         }
     }
 }
