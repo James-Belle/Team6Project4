@@ -4,7 +4,6 @@ using System.Numerics;
 
 namespace Game10003
 {
-   
     public class Game
     {
         // Place your variables here:
@@ -18,8 +17,6 @@ namespace Game10003
         public float CircleCenterY = 100;
         public float Circleradius = 170;
 
-
-
         Player player = new Player();
 
         Platform[] platforms = new Platform[24];
@@ -28,7 +25,6 @@ namespace Game10003
         Vector2 gravity = new Vector2(0, +10);
         Vector2 playerposition = new Vector2(100, 100);
 
-
         Texture2D texture;
         Color Svelt = new Color(22, 14, 0, 255);
         Color Pink = new Color(255, 195, 233, 255);
@@ -36,7 +32,6 @@ namespace Game10003
 
         public void Setup()
         {
-
             Window.SetTitle("Load Asset Example");
             Window.SetSize(400, 400);
 
@@ -45,7 +40,6 @@ namespace Game10003
 
             string filePath = "\"C:\\Users\\User\\Documents\\Brick Background.png\"";
             texture = Graphics.LoadTexture(filePath);
-
 
             Window.SetTitle ("Rise up");
             Window.SetSize(800, 600);
@@ -121,7 +115,6 @@ namespace Game10003
                 radius = 50;
                 Draw.Circle(x, y, radius);
 
-
                 x = 125;
                 y = 360;
                 radius = 50;
@@ -167,23 +160,16 @@ namespace Game10003
                 radius = 50;
                 Draw.Circle(x, y, radius);
 
-
-
                 x = 120;
                 y = 100;
                 radius = 50;
                 Draw.Circle(x, y, radius);
 
-
-
-
                 x = 250;
                 y = 100;
                 radius = 50;
 
-
                 Draw.Circle(x, y, radius);
-
 
                 Graphics.Draw(texture, 10, 10);
 
@@ -205,15 +191,11 @@ namespace Game10003
                 Draw.LineColor = Color.Black;
                 Draw.Rectangle(playerposition, gravity);
 
-
                 player.lastPosition = player.position;
                 player.drawPlayer();
                 player.playerControl();
 
                 playerposition = player.position;
-
-                
-
             }
 
             if (player.bottomSide >= 600 ) // game over happens when player falls below zero
@@ -225,18 +207,12 @@ namespace Game10003
                 }
             }
         }
+
         public void Circle()
         {
-
-
             Draw.FillColor = Color.OffWhite;
             Draw.LineColor = Color.Black;
             Draw.LineSize = 4;
-
-
-
-
-
         }
     }
 }
