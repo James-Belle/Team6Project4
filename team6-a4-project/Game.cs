@@ -30,7 +30,7 @@ namespace Game10003
         Color Pink = new Color(255, 195, 233, 255);
         Color Brick = new Color(110, 40, 0, 200);
 
-        public void Setup()
+        public void Setup() // this sets the size of your canvas box
         {
             Window.SetTitle("Load Asset Example");
             Window.SetSize(400, 400);
@@ -68,7 +68,7 @@ namespace Game10003
             {
                 Window.ClearBackground(Color.Blue);
 
-                Circle();
+                Circle(); // this multiples the circle
 
                 x = 640;
                 y = 485;
@@ -208,7 +208,7 @@ namespace Game10003
             }
         }
 
-        public void Circle()
+        public void Circle() // this draws the circle
         {
             Draw.FillColor = Color.OffWhite;
             Draw.LineColor = Color.Black;
